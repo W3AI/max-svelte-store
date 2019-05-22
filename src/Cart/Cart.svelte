@@ -6,6 +6,9 @@
 // vars like $cartItems are treated by svelte as stores !!!
 // so svelte sets subscription, extract data, prep unsubscribe
 
+// If you need to transform data from store then 
+// you need to use regular subscribe / unsubscribe, etc
+
 // let items;
 
 // const unsubscribe = cartItems.subscribe(its => {
