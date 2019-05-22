@@ -18,4 +18,4 @@
 {/if}
 <Products />
 
-<p>Count: {$timer}</p>
+<!-- <p>Count: {$timer}</p> -->
