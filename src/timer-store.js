@@ -27,6 +27,7 @@ export const timer = readable(0, (set) => {
 
     // To return a function to be called by svelte when readable is not needed anymore
     return () => {
+        count = 0;
         clearInterval(interval);
     };
 });
