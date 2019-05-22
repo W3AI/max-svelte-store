@@ -6,9 +6,10 @@
 
   let showCart = true;
 
-  timer.subscribe(count => {
-      console.log('App: ' + count);
-  });
+//   timer.subscribe(count => {
+//       console.log('App: ' + count);
+//   });
+
 </script>
 
 <Button on:click={() => {showCart = !showCart}}>Toggle Cart</Button>
@@ -16,3 +17,5 @@
 <Cart />
 {/if}
 <Products />
+
+<p>Count: {$timer}</p>
