@@ -1,4 +1,5 @@
 <script>
+    import cartItems from './cart-store.js';
   import Button from "../UI/Button.svelte";
 
   export let title;
@@ -12,8 +13,10 @@
   }
 
   function removeFromCart() {
-    // ...
-    console.log("Removing...");
+      // return a new items array without the one with index id - the id of the CartItem
+      cartItems.update(items => {
+          return items.filter(i => i.id !== id);
+      });
   }
 </script>
 
