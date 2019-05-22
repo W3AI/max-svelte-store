@@ -30,9 +30,7 @@
 
   function removeFromCart() {
       // return a new items array without the one with index id - the id of the CartItem
-      cartItems.update(items => {
-          return items.filter(i => i.id !== id);
-      });
+      cartItems.removeItem(id);
   }
 </script>
 

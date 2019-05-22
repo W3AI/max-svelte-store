@@ -6,7 +6,7 @@ import { readable } from 'svelte/store';
 // const fs = require('fs-extra');
 
 // With Promises:
-// fs.writeJson('./package.json', {name: 'fs-extra'})
+// fs.writeJson('./fs-timer.json', {name: 'fs-extra'})
 // .then(() => {
 //   console.log('success!')
 // })
@@ -27,7 +27,7 @@ export const timer = readable(0, (set) => {
 
     // To return a function to be called by svelte when readable is not needed anymore
     return () => {
-        count = 0;
+        // count = 0;
         clearInterval(interval);
     };
 });
