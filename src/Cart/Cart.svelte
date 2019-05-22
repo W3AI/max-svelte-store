@@ -1,7 +1,12 @@
 <script>
     import { onDestroy } from 'svelte';
     import cartItems from './cart-store.js';
+    import { timer } from '../timer-store.js'
   import CartItem from "./CartItem.svelte";
+
+    timer.subscribe(count => {
+        console.log('Cart: ' + count);
+    });
 
 // vars like $cartItems are treated by svelte as stores !!!
 // so svelte sets subscription, extract data, prep unsubscribe

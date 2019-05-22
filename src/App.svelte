@@ -7,7 +7,7 @@
   let showCart = true;
 
   timer.subscribe(count => {
-      console.log(count);
+      console.log('App: ' + count);
   });
 </script>
 
