@@ -1,31 +1,33 @@
 import { writable } from 'svelte/store';    // the svelte state store
 
-function createCart() {
-    // the state store
-    const cart = writable([{
-        id: "p3",
-        title: "Test",
-        price: 9.99
+// the state store
+const cart = writable([{
+    id: "p3",
+    title: "Test",
+    price: 9.99
+},
+{
+    id: "p4",
+    title: "Test",
+    price: 9.99
+}]);
+
+const customCart = {
+    subscribe: cart.subscribe,
+    addItem: (item) => {
+        cart.update((items) => {
+            // To avoid adding an item already in the cart ?!
+            if (items.find(i => i.id === item.id)) {
+                return [...items];
+            }
+            return [...items, item];
+        })
     },
-    {
-        id: "p4",
-        title: "Test",
-        price: 9.99
-    }]);
+    removeItem: (id) => {
+        cart.update(items => {
+            return items.filter(i => i.id !== id);
+        })
+    }
+};
 
-    return {
-        subscribe: cart.subscribe,
-        addItem: (item) => {
-            cart.update((items) => {
-                return [...items, item];
-            })
-        },
-        removeItem: (id) => {
-            cart.update(items => {
-                return items.filter(i => i.id !== id);
-            })
-        }
-    };
-}
-
-export default createCart();
+export default customCart;
