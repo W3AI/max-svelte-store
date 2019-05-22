@@ -4,7 +4,7 @@
     import { timer } from '../timer-store.js'
   import CartItem from "./CartItem.svelte";
 
-    timer.subscribe(count => {
+    const unsubscribe = timer.subscribe(count => {
         console.log('Cart: ' + count);
     });
 
@@ -21,11 +21,11 @@
 // });
 
 // // Allways clear subscriptions
-// onDestroy(() => {
-//     if (unsubscribe) {
-//         unsubscribe();
-//     }
-// });
+onDestroy(() => {
+    if (unsubscribe) {
+        unsubscribe();
+    }
+});
 
 //   export let items = [
 //     {
