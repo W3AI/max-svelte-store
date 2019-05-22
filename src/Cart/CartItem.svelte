@@ -9,16 +9,23 @@
 
   let showDescription = false;
   let description = 'Not available!'; 
-  let fetchedProducts = [];
+//   let fetchedProducts = [];
 
-  products.subscribe(prods => {
-      fetchedProducts = prods;
-  });
+//   products.subscribe(prods => {
+//       fetchedProducts = prods;
+//   });
 
   function displayDescription() {
     showDescription = !showDescription;
     // get the description of the prod with the id in the CartItem
-    description = fetchedProducts.find(p => p.id === id).description;
+    // description = fetchedProducts.find(p => p.id === id).description;
+
+    // PREFERED APPROACH !!! - IF YOU NEED DATA JUST ONE TIME !!!
+    // Second store access approach from the function where you need the data <<< !!! 2nd approach
+    const unsubscribe = products.subscribe(prods => {
+        description = prods.find(p => p.id === id).description;
+    });
+    unsubscribe();
   }
 
   function removeFromCart() {
