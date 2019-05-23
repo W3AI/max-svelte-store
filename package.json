@@ -20,6 +20,7 @@
     "start:dev": "sirv public --dev"
   },
   "dependencies": {
+    "browserify": "^16.2.3",
     "fs-extra": "^8.0.1",
     "requirejs": "^2.3.6"
   }
